@@ -1,14 +1,16 @@
-"use strict"
+'use strict'
 
-const img = document.querySelector("img");
-const clickCounter = document.getElementById("clicker__counter");
-let click = (clickCounter.textContent = 0);
+const img = document.querySelector('img');
+let clickerElem = document.getElementById('clicker__counter');
+let clickerCounter = clickerElem.textContent;
+
 img.onclick = function () {
-  if (img.width === 200) {
-    img.width = 300;
-    clickCounter.textContent = ++click;
-  } else if (img.width !== 200) {
-    img.width = 200;
-    clickCounter.textContent = ++click;
+  clickerCounter++;
+  if (clickerCounter % 2 === 0) {
+    img.width = '200';
+    
+  } else {
+    img.width = '300';
   }
+  return (clickerElem.textContent = clickerCounter);
 };
